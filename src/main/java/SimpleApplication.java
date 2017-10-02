@@ -45,8 +45,7 @@ public class SimpleApplication extends Application<Configuration> {
         // Create any global resources you need here
         org.jooq.Configuration jooqConfig = setupJooq();
         ReceiptDao receiptDao = new ReceiptDao(jooqConfig);
-
-<<<<<<< HEAD
+        
         TagDao tagDao = new TagDao(jooqConfig);
 
         // Register all Controllers below.  Don't forget
