@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-import controllers.ReceiptController;
-import controllers.NetIDController;
-import controllers.TagController;
-import controllers.StaticHtmlController;
 
-=======
 import controllers.*;
->>>>>>> upstream/master
 import dao.ReceiptDao;
 import dao.TagDao;
 
@@ -45,7 +38,7 @@ public class SimpleApplication extends Application<Configuration> {
         // Create any global resources you need here
         org.jooq.Configuration jooqConfig = setupJooq();
         ReceiptDao receiptDao = new ReceiptDao(jooqConfig);
-        
+
         TagDao tagDao = new TagDao(jooqConfig);
 
         // Register all Controllers below.  Don't forget
