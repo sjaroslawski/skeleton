@@ -28,7 +28,7 @@
         // This is the idiomatic way to ensure that JQuery does not
         // execute until the page has loaded
         $(function(){
-            const api = "http://192.168.99.100"; // <- do not need a root api URL if this page is served directly by the API
+            const api = ""; // <- do not need a root api URL if this page is served directly by the API
             $.getJSON(api+"/receipts", function(receipts){
                 for(var i=0; i < receipts.length; i++) {
                     var receipt = receipts[i];
@@ -119,7 +119,7 @@
                     var textbox = this;
                     $.ajax({
                         type: "PUT",
-                        url: api + "/tags/" + textbox.text(),
+                        url: api + "/tags/" + textbox.value,
                         data: JSON.stringify(Array.prototype.indexOf.call($("#receiptList")["0"].children, textbox.parentElement) + 1),
                         contentType: "application/json; charset=utf-8",
                         success: function () {
@@ -132,10 +132,10 @@
 
             $(document).on("click", ".tagValue", function() {
                 var tag = this;
-                console.log(tag.innerHTML);
+                console.log(tag.innerText);
                 $.ajax({
                     type: "PUT",
-                    url: api + "/tags/" + tag.innerHTML,
+                    url: api + "/tags/" + tag.innerText,
                     data: JSON.stringify(Array.prototype.indexOf.call($("#receiptList")["0"].children, tag.parentElement.parentElement) + 1),
                     contentType: "application/json; charset=utf-8",
                     success: function () {
